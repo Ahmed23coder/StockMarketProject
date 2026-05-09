@@ -1,0 +1,206 @@
+Stock Market Analysis System - How To Use
+=========================================
+
+What this project does
+----------------------
+This app lets you search for a stock symbol, fetch live stock information from
+Yahoo Finance using yfinance, and display historical price/volume charts using
+Streamlit and Plotly.
+
+
+How to run the app
+------------------
+1. Open PowerShell or the VS Code terminal.
+
+2. Go to the project folder:
+
+   cd "D:\College\Semester 8\Current issues\StockMarketProject"
+
+3. If you already installed the requirements, run:
+
+   streamlit run app.py
+
+4. If the libraries are not installed yet, run:
+
+   pip install -r requirements.txt
+   streamlit run app.py
+
+5. Streamlit will open the app in your browser.
+   Usually the link is:
+
+   http://localhost:8501
+
+
+Recommended Python version
+--------------------------
+Use Python 3.11 for this project.
+
+Python 3.14 may be too new for some data libraries, so Python 3.11 is the safer
+choice for Streamlit, pandas, plotly, and yfinance.
+
+
+How to use the app
+------------------
+1. In the sidebar, choose a symbol from "Popular Symbols" or type your own
+   Yahoo Finance symbol in "Stock Symbol".
+
+2. Choose a historical period:
+
+   7d   = Last 7 days
+   1mo  = Last 1 month
+   3mo  = Last 3 months
+   1y   = Last 1 year
+
+3. Choose a moving average window.
+   Example: 20 means the app calculates the average closing price over 20 days.
+
+4. Click "Analyze Stock".
+
+5. The app will show:
+
+   - Current stock price
+   - Previous close price
+   - Price change during the selected period
+   - Trading volume
+   - Exchange name
+   - Open price
+   - Day high
+   - Market cap
+   - Price trend chart
+   - Volume chart
+   - Historical data table
+
+
+Stock symbols
+-------------
+The app is not limited to only AAPL, TSLA, or BTC-USD.
+
+It can search any valid Yahoo Finance symbol, as long as Yahoo Finance has data
+for it. The app includes a small list of popular symbols to make testing easier,
+but you can still type other symbols manually.
+
+Popular examples:
+
+US stocks:
+
+   AAPL   = Apple Inc.
+   MSFT   = Microsoft Corporation
+   TSLA   = Tesla Inc.
+   AMZN   = Amazon.com Inc.
+   GOOGL  = Alphabet Inc. Class A
+   META   = Meta Platforms Inc.
+   NVDA   = NVIDIA Corporation
+   NFLX   = Netflix Inc.
+   JPM    = JPMorgan Chase & Co.
+   V      = Visa Inc.
+   WMT    = Walmart Inc.
+   DIS    = Walt Disney Company
+   KO     = Coca-Cola Company
+   PEP    = PepsiCo Inc.
+   BRK-B  = Berkshire Hathaway Class B
+
+Market indexes:
+
+   ^GSPC  = S&P 500 Index
+   ^DJI   = Dow Jones Industrial Average
+   ^IXIC  = Nasdaq Composite
+
+Crypto symbols on Yahoo Finance:
+
+   BTC-USD  = Bitcoin in US dollars
+   ETH-USD  = Ethereum in US dollars
+
+Other symbol formats:
+
+   BRK-B    = Berkshire Hathaway Class B
+   RDSA.AS  = Some international symbols may include dots or exchange suffixes
+
+
+What if the user does not enter the symbol perfectly?
+----------------------------------------------------
+The app now handles several common cases:
+
+1. Lowercase letters are accepted.
+
+   aapl becomes AAPL
+
+2. Extra spaces are removed.
+
+   "  tsla  " becomes TSLA
+
+3. Some company names or common names are converted to symbols.
+
+   apple     becomes AAPL
+   tesla     becomes TSLA
+   bitcoin   becomes BTC-USD
+   ethereum  becomes ETH-USD
+   nasdaq    becomes ^IXIC
+
+4. If the format is wrong, the app shows an error and suggests common symbols.
+
+5. If the symbol format is valid but Yahoo Finance has no data for it, the app
+   shows a clear message and suggests similar popular symbols when possible.
+
+Accepted symbol characters:
+
+   Letters: AAPL
+   Numbers: some assets include numbers
+   Dot: BRK.B style symbols when supported by Yahoo Finance
+   Hyphen: BTC-USD or BRK-B
+   Leading caret: ^GSPC, ^DJI, ^IXIC
+
+
+What is a stock symbol?
+-----------------------
+A stock symbol, also called a ticker, is a short code used to identify a company
+or financial asset on the stock market.
+
+Examples:
+
+   AAPL means Apple.
+   TSLA means Tesla.
+   BTC-USD means Bitcoin priced in US dollars.
+
+The app accepts letters, numbers, dots, and hyphens.
+
+
+Important things to know about stock data
+-----------------------------------------
+Current Price:
+The latest available price from Yahoo Finance.
+
+Previous Close:
+The price when the market closed on the previous trading day.
+
+Open Price:
+The price when the market opened today.
+
+Day High:
+The highest price reached during the current trading day.
+
+Day Low:
+The lowest price reached during the current trading day.
+
+Volume:
+How many shares were traded.
+
+Market Cap:
+The total market value of the company.
+
+Close Price:
+The final price for each day in the historical data.
+
+Moving Average:
+A smoothed average of the closing price over a selected number of days. It helps
+show the general trend instead of focusing only on daily price changes.
+
+
+Notes
+-----
+1. The app needs internet access because it fetches data from Yahoo Finance.
+
+2. Some symbols may not work if Yahoo Finance does not have data for them.
+
+3. Stock prices can be delayed depending on Yahoo Finance data availability.
+
+4. This app is for learning and analysis only. It is not financial advice.
